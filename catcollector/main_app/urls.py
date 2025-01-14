@@ -4,7 +4,7 @@ from . import views
 urlpatterns = [
 path('',views.home, name='home'),
 path('about/',views.about,name='about'),
-path('dogs/', views.dog_index, name='dog'),
+path('dogs/', views.dog_index, name='index'),
 path('dogs/<int:dog_id>/', views.dog_detail, name='detail'),
 path('dogs/create/', views.DogCreate.as_view(), name='dog_create'),
 #cbvs pk
@@ -21,4 +21,5 @@ path('toys/<int:pk>/delete/', views.ToyDelete.as_view(), name='toys_delete'),
 path('dogs/<int:dog_id>/assoc_toy/<int:toy_id>/', views.assoc_toy, name='assoc_toy'),
 # Unassociate a Toy from a Dog (M:M) 
 path('dogs/<int:dog_id>/unassoc_toy/<int:toy_id>/', views.unassoc_toy, name='unassoc_toy'),
+path('accounts/signup/', views.signup, name='signup'),
 ]

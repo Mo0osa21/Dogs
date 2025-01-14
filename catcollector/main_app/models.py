@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from django.contrib.auth.models import User
 
 MEALS = (
     ('B', 'Breakfast'),
@@ -23,7 +24,9 @@ class Dog(models.Model):
     describtion = models.TextField(max_length=250)
     age = models.IntegerField()
     image=models.ImageField(upload_to='main_app/static/upload/',default="")
-    toys=models.ManyToManyField(Toy)
+    toys = models.ManyToManyField(Toy)
+    # Add the foreign key linking to a user instance
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     def __str__(self):
      return self.name
     def get_absolute_url(self):
